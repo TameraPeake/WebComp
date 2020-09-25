@@ -1,9 +1,114 @@
 <!DOCTYPE html!>
 <html>
 <head>
-<meta charset="utf-8">
-  <title>Social Media Link Assignment DMACC 2020</title>
+  <meta charset="utf-8">
+    <title>Social Media Link Assignment DMACC 2020</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    header, footer {
+      padding: 5px;
+      text-align: center;
+    }
+
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    }
+
+  .flex-container iframe, video {
+    padding: 15px;
+   }
+
+   footer {
+     display: flex;
+     justify-content: center;
+   }
+   .flex-icon {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     padding: 15px;
+     width: 50%;
+   }
+
+    .facebook {
+      background-color: white;
+    }
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+    }
+
+    .fa-instagram {
+      background-color: #125688;
+      color: white;
+    }
+
+    .fa-snapchat-ghost {
+      background: #fffc00;
+      color: white;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+
+    </style>
+    <!--Twitter-->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
 </head>
-<body>
-</body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0" nonce="nu885ZJg"></script>
+  <header>
+    <h1>Tamera Peake</h1>
+    <h3>Social Media Assignment</h3>
+  </header>
+  <section>
+    <div class="flex-container">
+  	   <iframe width="480" height="300" src="https://www.youtube.com/embed/Cj_z4KAjLLA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <video width="480" height="300" controls>
+          <source src="http://tamerapeake.us.tempcloudsite.com/WebComp/unit2/kk2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <footer>
+    <div class="flex-icon">
+      <!--Twitter-->
+      <a href="https://twitter.com/intent/tweet?button_hashtag=tamerapeake&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #tamerapeake</a><br><br>
+
+      <br>
+
+      <!--Linked in share-->
+      <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+      <script type="IN/Share" data-url="https://www.linkedin.com"></script>
+      <br><br>
+
+      <!--Youtube-->
+      <script src="https://apis.google.com/js/platform.js"></script>
+      <div class="g-ytsubscribe" data-channelid="UC0296zrzUVbg_h9y-SZAe0A" data-layout="default" data-count="default"></div>
+      <br><br>
+
+      <!--Pinterest-->
+      <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+      <a data-pin-do="buttonFollow" href="https://www.pinterest.com/pet2433">Pinterest</a>
+      <br><br>
+
+      <!--Instigram-->
+      <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+      <!--SnapChat-->
+      <a href="https://www.snapchat.com/" class="fa fa-snapchat-ghost"></a>
+      <br><br>
+
+      <!--Facebook like & share-->
+      <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+      <br><br>
+
+      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+    </div>
+  </footer>
 </html>
