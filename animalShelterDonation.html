@@ -20,15 +20,17 @@
     padding: 5px;
   }
 
-  #donation_box, #subscription_box {
+  #donation_box, #subscription_box, #cart_box {
     display: flex;
-    justify-content: center;
-    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
-  #donation_box div, #subscription_box div {
+  #donation_box div, #subscription_box div, #cart_box div{
     padding: 20px;
+    width:30%;
   }
+
 
   form {
     padding-bottom: 10px;
@@ -36,38 +38,39 @@
 
   .backgroundContainer {
     border: 1px solid black;
-    margin-left: 400px;
-    width: 65%;
+    width:75%;
+    margin-left: 10%;
+  }
+  h1 {
+    width: 100%;
+    text-align: center;
   }
 
   #showDonations {
     border: 3px solid gray;
-    width: 65%;
-    margin-left: 400px;
   }
 
-  #showDonat_box, #showSub_box {
+  #showDonat_box, #showSub_box, #showCart_box {
     border: 2px solid gray;
     width: 100%;
   }
 
-  .video_wrap{
-    position: absolute;
-    top:0;
-    left:0;
-    width: 25%;
-    height: 75%;
-    overflow: hidden;
-    margin:5px;
-    margin-top:120px;
+  .viewCart {
+    text-align: center;
   }
-  .video_wrap video {
-    min-width: 100%;
-    min-height: 100%;
-  }
-  </style>
-  <script>
 
+  .viewCart form {
+    margin-top:45%;
+  }
+
+  </style>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+  </script>
+  <script>
+/*
   function hideBoxes() {
 
     document.getElementById("donation_box").style.display = "none";
@@ -93,22 +96,33 @@
       x.style.display = "none";
     }
   }
+  */
+
+  $(document).ready(function(){
+    $("#showDonat_box").click(function(){
+      $("#donation_box").slideToggle();
+    });
+    $("#showSub_box").click(function(){
+      $("#subscription_box").slideToggle();
+    });
+    $("#showCart_box").click(function(){
+      $("#cart_box").slideToggle();
+    });
+  });
   </script>
 
 </head>
-<body onload="hideBoxes()">
+<body>
   <div class="header">
     <h1>Animal Aid of Iowa</h1>
     <h3>Academic Project</h3>
   </div>
-  <button type="button" id="showDonations" onclick="hideBoxes()">Reset Page</button>
   <div class="backgroundContainer">
-  <iframe class="video_wrap"  src="https://www.youtube.com/embed/AYJiI-1suHs?autoplay=1&mute=1" allowfullscreen></iframe>
     <button type="button" id="showDonat_box" onclick="showDonat_box()">Donate to Animal Aid</button>
     <div id="donation_box">
       <div>
         <label>One Time Donation<label>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
           <input type="hidden" name="cmd" value="_s-xclick" />
           <input type="hidden" name="hosted_button_id" value="7PB8PZSTJF4G6" />
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
@@ -116,8 +130,8 @@
         </form>
       </div>
       <div>
-      <label>Multiple Amount Donation</label>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <label>Multiple Amount Donation</label>
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
           <input type="hidden" name="cmd" value="_s-xclick" />
           <input type="hidden" name="hosted_button_id" value="7EKFAS7NJWWW6" />
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
@@ -126,7 +140,7 @@
       </div>
       <div>
         <label>Reoccuring Donation</label>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
           <input type="hidden" name="cmd" value="_s-xclick" />
           <input type="hidden" name="hosted_button_id" value="A8CGGKDDNTEHN" />
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
@@ -162,6 +176,102 @@
         </form>
       </div>
     </div>
+    <button type="button" id="showCart_box" onclick="showCart_box()">Add Toys To Your Cart</button>
+    <div id="cart_box">
+      <h1>
+        <label>Cat Toys</label>
+      </h1>
+      <div>
+        <img src="http://localhost/WebComp/WebComp/images/cattoy1.jpg" alt="#" width="200" height="150"/>
+      	<form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+      		<input type="hidden" name="cmd" value="_s-xclick">
+      		<input type="hidden" name="hosted_button_id" value="C9CS8LKLHBJQA">
+      		<table>
+      		<tr><td><input type="hidden" name="on0" value="Cat Balls-multicolored">Cat Balls-multicolored</td></tr><tr><td><select name="os0">
+      			<option value="4 pack">4 pack $4.99 USD</option>
+      			<option value="8 pack">8 pack $6.99 USD</option>
+      			<option value="12 pack">12 pack $9.99 USD</option>
+      		</select> </td></tr>
+      		</table>
+      		<input type="hidden" name="currency_code" value="USD">
+      	 	<input type="hidden" name="shopping_url" value="http://tamerapeake.us.tempcloudsite.com/WebComp/unit%204/paypalDonation.html">
+      		<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      		<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      	</form>
+
+        <img src="http://localhost/WebComp/WebComp/images/cattoy1.jpg" alt="#" width="200" height="150"/>
+        <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="JV6UMMKQDJC2Q">
+          <table>
+          <tr><td><input type="hidden" name="on0" value="Ball Track">Ball Track-$12.99</td></tr><tr><td><select name="os0">
+          	<option value="Green Track">Green Track </option>
+          	<option value="Black Track">Black Track </option>
+          	<option value="Blue Track">Blue Track </option>
+          </select> </td></tr>
+          </table>
+          <input type="hidden" name="shopping_url" value="http://tamerapeake.us.tempcloudsite.com/WebComp/unit%204/paypalDonation.html">
+          <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+          <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+      </div>
+      <div>
+        <label>
+          <p>Feather Wand-$8.99</p>
+        <label>
+        <img src="http://localhost/WebComp/WebComp/images/cattoy1.jpg" alt="#" width="200" height="150"/>
+        <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="LV7FB3T285HMY">
+          <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+          <input type="hidden" name="shopping_url" value="http://tamerapeake.us.tempcloudsite.com/WebComp/unit%204/paypalDonation.html">
+          <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+
+        <img src="http://localhost/WebComp/WebComp/images/cattoy1.jpg" alt="#" width="200" height="150"/>
+        <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="8UYVC2AYHH4YS">
+          <table>
+          <tr><td><input type="hidden" name="on0" value="Initial Engraved Plush Pet">Initial Engraved Plush Pet</td></tr><tr><td><select name="os0">
+          	<option value="Cat">Cat $25.00 USD</option>
+          	<option value="Dog">Dog $25.00 USD</option>
+          	<option value="Fish">Fish $25.00 USD</option>
+          	<option value="Bird">Bird $25.00 USD</option>
+          </select> </td></tr>
+          <tr><td><input type="hidden" name="on1" value="Add Initials Here">Add Initials Here</td></tr><tr><td><input type="text" name="os1" maxlength="200"></td></tr>
+          </table>
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="shopping_url" value="http://tamerapeake.us.tempcloudsite.com/WebComp/unit%204/paypalDonation.html">
+          <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+          <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+    <div>
+        <img src="http://localhost/WebComp/WebComp/images/cattoy1.jpg" alt="#" width="200" height="150"/>
+        <label>
+          <p>5 Mice filled with catnip-$10.00</p>
+        <label>
+        <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="2TGXULQ34KWH4">
+          <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+          <input type="hidden" name="shopping_url" value="http://tamerapeake.us.tempcloudsite.com/WebComp/unit%204/paypalDonation.html">
+          <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+      </div>
+      <div class="viewCart">
+        <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" >
+          <input type="hidden" name="cmd" value="_cart">
+          <input type="hidden" name="business" value="H26X84U27JGLQ">
+          <input type="hidden" name="display" value="1">
+          <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+          <input type="hidden" name="shopping_url" value="http://tamerapeake.us.tempcloudsite.com/WebComp/unit%204/paypalDonation.html">
+          <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+      </div>
+    </div>
+  </div>
   <div class="footer">
   </div>
 </body>
